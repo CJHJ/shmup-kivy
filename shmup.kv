@@ -1,0 +1,33 @@
+#:kivy 1.0.9
+
+<PlayerShip>:
+    size: 50,30
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "./assets/ship.png"
+
+<GameoverText>:
+    Label:
+        font_size: 50
+        center_x: root.width *4
+        top: root.top + 50
+        text: "Game Over! Press \'r\' to retry."
+
+<ShmupGame>:
+    player: player_ship
+    goText: gameover_text
+    
+    Label:
+        font_size: 50
+        center_x: root.width / 4
+        top: root.top - 50
+        text: "Score : "+str(root.player.score)
+    
+    PlayerShip:
+        id: player_ship
+        # center: self.parent.center
+        
+    GameoverText:
+        id: gameover_text
